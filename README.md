@@ -94,7 +94,7 @@ The components feature:
 
 **Inspiration**: [cosmic-ui](https://github.com/rizkimuhammada/cosmic-ui) by rizkimuhammada - original React-based cosmic UI library
 
-**SVG Graphics**: "HUD futuristic frame" - luqman firdau @ [Vecteezy.com](https://www.vecteezy.com)
+**SVG Graphics**: [HUD futuristic frame](https://www.vecteezy.com/vector-art/21909955-hud-futuristic-frame-border-game-swag-elements-pack-yellow-line-cyber-sci-fi-icon-symbol-cyberpunk-interface-editable) - [luqman firdau](https://www.vecteezy.com/members/lluuffyy) @ [Vecteezy.com](https://www.vecteezy.com)
 
 ## 📁 File Structure
 
