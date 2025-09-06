@@ -146,12 +146,11 @@ import { CosmicUI } from 'cosmic-ui-lite';
 import 'cosmic-ui-lite/dist/cosmic-ui.css';
 ```
 
-### CDN (Coming Soon)
+### CDN
 
 ```html
-<!-- Will be available soon -->
-<script src="https://unpkg.com/cosmic-ui-lite@1.0.0/dist/index.umd.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/cosmic-ui-lite@1.0.0/dist/cosmic-ui.css">
+<script src="https://unpkg.com/cosmic-ui-lite@latest/dist/index.umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/cosmic-ui-lite@latest/dist/cosmic-ui.css">
 ```
 
 ### Source Build
