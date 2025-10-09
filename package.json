@@ -1,6 +1,6 @@
 {
   "name": "cosmic-ui-lite",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightweight, futuristic, space-themed UI component library built with TypeScript and vanilla JavaScript",
   "type": "module",
   "main": "dist/index.cjs.js",
