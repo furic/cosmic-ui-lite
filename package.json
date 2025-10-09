@@ -48,7 +48,8 @@
     "dev": "npm run build:watch",
     "demo": "npm run build && open demo.html",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "sync-wiki": "./scripts/sync-wiki.sh"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",

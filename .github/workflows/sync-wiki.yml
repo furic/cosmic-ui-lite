@@ -1,0 +1,68 @@
+name: Sync Wiki Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/wiki/**'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync-wiki:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout main repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Checkout wiki repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository }}.wiki
+        path: wiki
+
+    - name: Copy documentation files to wiki
+      run: |
+        echo "Syncing wiki documentation..."
+        cp docs/wiki/wiki-home.md wiki/Home.md
+        cp docs/wiki/wiki-installation-setup.md wiki/Installation-\&-Setup.md
+        cp docs/wiki/wiki-component-reference.md wiki/Component-Reference.md
+        cp docs/wiki/wiki-complete-examples.md wiki/Complete-Examples.md
+        cp docs/wiki/wiki-troubleshooting.md wiki/Troubleshooting.md
+        cp docs/wiki/wiki-architecture-overview.md wiki/Architecture-Overview.md
+        echo "✅ Files copied successfully"
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        cd wiki
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "📝 Changes detected in wiki files"
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "✅ No changes to sync"
+        fi
+
+    - name: Commit and push wiki changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        cd wiki
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Auto-sync wiki documentation from main repo
+
+        Synced from commit: ${{ github.sha }}
+        Triggered by: ${{ github.event_name }}
+
+        🤖 Automated sync via GitHub Actions"
+        git push
+
+    - name: Summary
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        echo "✅ Wiki documentation synced successfully!"
+        echo "📚 View at: https://github.com/${{ github.repository }}/wiki"
