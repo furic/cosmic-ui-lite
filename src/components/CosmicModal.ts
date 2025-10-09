@@ -4,10 +4,28 @@ import type { CosmicModalOptions } from '../types';
 import { CosmicButton } from './CosmicButton';
 
 export class CosmicModal {
+  private overlay: HTMLDivElement;
+  private options: CosmicModalOptions;
+  private handleEscape: (e: KeyboardEvent) => void;
+
+  private constructor(options: CosmicModalOptions) {
+    this.options = options;
+    this.overlay = this.createOverlay();
+    this.handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        this.close();
+      }
+    };
+  }
+
   /**
    * Creates a cosmic-themed modal with backdrop blur and slide-in animation using SVG shape
    */
-  static create(options: CosmicModalOptions): HTMLDivElement {
+  static create(options: CosmicModalOptions): CosmicModal {
+    return new CosmicModal(options);
+  }
+
+  private createOverlay(): HTMLDivElement {
     // Create modal overlay
     const overlay = document.createElement('div');
     overlay.className = 'cosmic-modal-overlay';
@@ -23,8 +41,8 @@ export class CosmicModal {
     const modalContent = document.createElement('div');
     modalContent.className = 'cosmic-content';
 
-    if (options.className) {
-      modalContent.className += ` ${options.className}`;
+    if (this.options.className) {
+      modalContent.className += ` ${this.options.className}`;
     }
 
     // Create header
@@ -33,18 +51,17 @@ export class CosmicModal {
 
     const title = document.createElement('h2');
     title.className = 'cosmic-title-enhanced';
-    title.textContent = options.title;
+    title.textContent = this.options.title;
     header.appendChild(title);
 
     // Create close button if enabled
-    if (options.showCloseButton !== false) {
+    if (this.options.showCloseButton !== false) {
       const closeBtn = document.createElement('button');
       closeBtn.className = 'cosmic-modal-close';
       const closeIcon = createCloseIcon();
       closeBtn.appendChild(closeIcon);
       closeBtn.addEventListener('click', () => {
-        CosmicModal.close(overlay);
-        if (options.onClose) options.onClose();
+        this.close();
       });
       modalContent.appendChild(closeBtn);
     }
@@ -53,28 +70,28 @@ export class CosmicModal {
     const body = document.createElement('div');
     body.className = 'cosmic-modal-body';
 
-    if (typeof options.content === 'string') {
-      body.innerHTML = options.content;
-    } else if (options.content instanceof HTMLElement) {
-      body.appendChild(options.content);
+    if (typeof this.options.content === 'string') {
+      body.innerHTML = this.options.content;
+    } else if (this.options.content instanceof HTMLElement) {
+      body.appendChild(this.options.content);
     } else {
       // Fallback for invalid content types
-      body.innerHTML = String(options.content || 'No content provided');
+      body.innerHTML = String(this.options.content || 'No content provided');
     }
 
     // Create footer with buttons
-    if (options.buttons && options.buttons.length > 0) {
+    if (this.options.buttons && this.options.buttons.length > 0) {
       const footer = document.createElement('div');
       footer.className = 'cosmic-modal-footer';
 
-      options.buttons.forEach((buttonOptions) => {
+      this.options.buttons.forEach((buttonOptions) => {
         const button = CosmicButton.create({
           ...buttonOptions,
           onClick: () => {
             if (buttonOptions.onClick) buttonOptions.onClick();
             // Auto-close modal unless it's a custom button that should keep modal open
             if (!buttonOptions.className?.includes('no-auto-close')) {
-              CosmicModal.close(overlay);
+              this.close();
             }
           },
         });
@@ -97,19 +114,8 @@ export class CosmicModal {
 
     // Close modal when clicking overlay
     overlay.addEventListener('click', () => {
-      CosmicModal.close(overlay);
-      if (options.onClose) options.onClose();
+      this.close();
     });
-
-    // Close modal on Escape key
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        CosmicModal.close(overlay);
-        if (options.onClose) options.onClose();
-        document.removeEventListener('keydown', handleEscape);
-      }
-    };
-    document.addEventListener('keydown', handleEscape);
 
     modalWrapper.appendChild(backgroundSvg);
     modalWrapper.appendChild(borderSvg);
@@ -119,21 +125,24 @@ export class CosmicModal {
   }
 
   /**
-   * Shows a modal by adding it to the document body
+   * Shows the modal by adding it to the document body
    */
-  static show(modal: HTMLDivElement): void {
-    document.body.appendChild(modal);
+  show(): void {
+    document.body.appendChild(this.overlay);
+    document.addEventListener('keydown', this.handleEscape);
   }
 
   /**
-   * Closes and removes a modal from the document
+   * Closes and removes the modal from the document
    */
-  static close(modal: HTMLDivElement): void {
-    modal.style.animation = 'modalFadeIn 0.2s ease-out reverse';
+  close(): void {
+    this.overlay.style.animation = 'modalFadeIn 0.2s ease-out reverse';
     setTimeout(() => {
-      if (modal.parentNode) {
-        modal.parentNode.removeChild(modal);
+      if (this.overlay.parentNode) {
+        this.overlay.parentNode.removeChild(this.overlay);
       }
+      document.removeEventListener('keydown', this.handleEscape);
+      if (this.options.onClose) this.options.onClose();
     }, 200);
   }
 }

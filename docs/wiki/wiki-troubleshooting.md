@@ -185,9 +185,10 @@ console.log('Button in DOM:', document.contains(button));
 
 **Solutions:**
 ```javascript
-// Use showModal method
+// Use modal instance methods
 const modal = CosmicUI.createModal({...});
-CosmicUI.showModal(modal); // Not just appendChild
+modal.show(); // Show the modal
+modal.close(); // Close it programmatically
 
 // Check for proper button setup
 const modal = CosmicUI.createModal({
@@ -198,8 +199,8 @@ const modal = CosmicUI.createModal({
   ]
 });
 
-// Manual close if needed
-CosmicModal.close(modal);
+// Instance close
+modal.close();
 ```
 
 #### Error: Animations not working

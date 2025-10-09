@@ -95,13 +95,17 @@ export interface ResponsiveBreakpoints {
 
 export interface CosmicUIInterface {
   createButton(options: CosmicButtonOptions): HTMLElement;
-  createModal(options: CosmicModalOptions): HTMLElement;
+  createModal(options: CosmicModalOptions): CosmicModalInstance;
   createCard(options: CosmicCardOptions): HTMLElement;
   createInfo(options: CosmicInfoOptions): HTMLElement;
   createTag(options: CosmicTagOptions): HTMLElement;
-  
-  showModal(modal: HTMLElement): void;
+
   showError(title: string, message: string): void;
   showConfirmation(title: string, message: string, onConfirm: () => void, onCancel?: () => void): void;
   showNotification(title: string, message: string): void;
+}
+
+export interface CosmicModalInstance {
+  show(): void;
+  close(): void;
 }

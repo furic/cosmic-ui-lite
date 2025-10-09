@@ -277,7 +277,7 @@ class StarshipDashboard {
     }
     
     triggerRedAlert() {
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '🚨 RED ALERT',
             content: `
                 <div style="text-align: center; padding: 20px;">
@@ -292,7 +292,7 @@ class StarshipDashboard {
                 { text: 'Battle Stations', variant: 'danger', onClick: () => this.battleStations() },
                 { text: 'Cancel Alert', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     engageWarp() {
@@ -333,7 +333,7 @@ class StarshipDashboard {
             buttons: [{ text: 'Close', variant: 'secondary' }]
         });
         
-        CosmicUI.showModal(commModal);
+        commModal.show();
     }
     
     runDiagnostics() {
@@ -372,7 +372,7 @@ class StarshipDashboard {
                 ]
             });
             
-            CosmicUI.showModal(diagnosticsModal);
+            diagnosticsModal.show();
         }, 2000);
     }
     
@@ -708,7 +708,7 @@ class GameMenu {
     }
     
     newGame() {
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '🚀 NEW GAME',
             content: `
                 <div style="padding: 20px; text-align: center;">
@@ -732,7 +732,7 @@ class GameMenu {
             buttons: [
                 { text: 'Cancel', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     showLoadMenu() {
@@ -767,13 +767,13 @@ class GameMenu {
             </div>
         `;
         
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '📁 LOAD GAME',
             content: loadMenuContent,
             buttons: [
                 { text: 'Cancel', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     showSettings() {
@@ -844,7 +844,7 @@ class GameMenu {
             </div>
         `;
         
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '⚙️ SETTINGS',
             content: settingsContent,
             buttons: [
@@ -852,11 +852,11 @@ class GameMenu {
                 { text: 'Reset to Defaults', variant: 'secondary', onClick: () => this.resetSettings() },
                 { text: 'Cancel', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     showStatistics() {
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '📊 GAME STATISTICS',
             content: `
                 <div style="padding: 20px;">
@@ -901,11 +901,11 @@ class GameMenu {
             buttons: [
                 { text: 'Close', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     showCredits() {
-        CosmicUI.showModal(CosmicUI.createModal({
+        CosmicUI.createModal({
             title: '📜 CREDITS',
             content: `
                 <div style="padding: 20px; text-align: center;">
@@ -938,7 +938,7 @@ class GameMenu {
             buttons: [
                 { text: 'Close', variant: 'secondary' }
             ]
-        }));
+        ).show();
     }
     
     exitGame() {

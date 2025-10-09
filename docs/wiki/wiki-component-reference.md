@@ -171,7 +171,7 @@ const modal = CosmicUI.createModal({
 });
 
 // Show the modal
-CosmicUI.showModal(modal);
+modal.show();
 ```
 
 ### Advanced Examples
@@ -224,15 +224,18 @@ const forcedModal = CosmicUI.createModal({
 ### Modal Methods
 
 ```typescript
-// Show modal
-CosmicUI.showModal(modal);
+// Create modal
+const modal = CosmicUI.createModal(options);
 
-// Close modal programmatically  
-CosmicModal.close(modal);
+// Show modal
+modal.show();
+
+// Close modal programmatically
+modal.close();
 
 // Create and show in one call
-const quickModal = CosmicModal.create(options);
-CosmicModal.show(quickModal);
+const quickModal = CosmicUI.createModal(options);
+quickModal.show();
 ```
 
 ### Close Behavior
@@ -656,13 +659,14 @@ createTimedTag('Message received from Command', 3000);
 
 Convenient methods for common UI patterns.
 
-### showModal(modal)
+### Modal Instance Methods
 
-Shows a modal with backdrop.
+Modals use instance methods for display control.
 
 ```typescript
 const modal = CosmicUI.createModal({...});
-CosmicUI.showModal(modal);
+modal.show();  // Show the modal
+modal.close(); // Close it programmatically
 ```
 
 ### showError(title, message)
@@ -759,15 +763,20 @@ interface CosmicTagOptions {
 ```typescript
 declare class CosmicUI {
   static createButton(options: CosmicButtonOptions): HTMLDivElement;
-  static createModal(options: CosmicModalOptions): HTMLDivElement;
+  static createModal(options: CosmicModalOptions): CosmicModal;
   static createCard(options: CosmicCardOptions): HTMLDivElement;
   static createInfo(options: CosmicInfoOptions): HTMLDivElement;
   static createTag(options: CosmicTagOptions): HTMLDivElement;
-  
-  static showModal(modal: HTMLDivElement): void;
+
   static showError(title: string, message: string): void;
   static showConfirmation(title: string, message: string, onConfirm?: () => void, onCancel?: () => void): void;
   static showNotification(title: string, message: string): void;
+}
+
+declare class CosmicModal {
+  static create(options: CosmicModalOptions): CosmicModal;
+  show(): void;
+  close(): void;
 }
 ```
 

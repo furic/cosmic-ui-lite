@@ -294,8 +294,7 @@ window.CosmicUIBridge = {
       content,
       buttons: [{ text: 'OK', variant: 'primary' }]
     });
-    modal.style.pointerEvents = 'auto';
-    overlay.appendChild(modal);
+    modal.show();
   }
 };
 ```

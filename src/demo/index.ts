@@ -144,7 +144,7 @@ function showModalDemo(): void {
 		],
 	});
 
-	CosmicUI.showModal(modal);
+	modal.show();
 }
 
 function showErrorDemo(): void {

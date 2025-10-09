@@ -185,7 +185,7 @@ const modal = CosmicUI.createModal({
 
 // 3. Add to your app
 document.body.appendChild(button);
-CosmicUI.showModal(modal);
+modal.show();
 ```
 
 **🎮 Perfect for games, ⚡ zero dependencies, 📱 mobile-ready!**
@@ -241,6 +241,12 @@ const modal = CosmicUI.createModal({
   ],
   onClose: () => console.log('Modal closed')
 });
+
+// Show the modal
+modal.show();
+
+// Or close it programmatically
+modal.close();
 ```
 
 ### CosmicCard
@@ -311,9 +317,6 @@ const tag = CosmicUI.createTag({
 ### Utility Methods
 
 ```typescript
-// Show modal with backdrop
-CosmicUI.showModal(modal);
-
 // Show error dialog
 CosmicUI.showError('System Failure', 'Unable to connect to mothership');
 
@@ -327,6 +330,15 @@ CosmicUI.showConfirmation(
 
 // Show notification toast
 CosmicUI.showNotification('Success', 'Target eliminated');
+
+// Direct modal control
+const modal = CosmicUI.createModal({
+  title: 'Custom Modal',
+  content: 'Content here',
+  buttons: [{ text: 'OK', variant: 'primary' }]
+});
+modal.show();  // Show the modal
+modal.close(); // Close it programmatically
 ```
 
 ## 🎭 Demo System
@@ -463,12 +475,12 @@ const confirmModal = CosmicUI.createModal({
   `,
   buttons: [
     {
-      text: 'Abort Mission', 
+      text: 'Abort Mission',
       variant: 'secondary',
       onClick: () => CosmicUI.showNotification('Aborted', 'Mission cancelled by operator')
     },
     {
-      text: 'FIRE', 
+      text: 'FIRE',
       variant: 'danger',
       onClick: () => {
         CosmicUI.showNotification('Launched', 'Orbital strike in progress...');
@@ -478,7 +490,7 @@ const confirmModal = CosmicUI.createModal({
   ]
 });
 
-CosmicUI.showModal(confirmModal);
+confirmModal.show();
 ```
 
 ### Dynamic Info Cards

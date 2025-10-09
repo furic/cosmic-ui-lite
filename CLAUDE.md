@@ -110,9 +110,10 @@ CSS media queries handle responsive behavior:
 - Small (≤430px): Ultra-compact mode
 
 ### Event Handling
-- Modal close: Click overlay, Escape key, or close button
-- Auto-cleanup: Event listeners removed on component destruction
-- Button interactions: Support for disabled state and custom onClick handlers
+- **Modal API**: Instance-based with `.show()` and `.close()` methods
+- **Modal close**: Click overlay, Escape key, or close button
+- **Auto-cleanup**: Event listeners removed on component destruction
+- **Button interactions**: Support for disabled state and custom onClick handlers
 
 ## Distribution & Usage
 
@@ -144,6 +145,8 @@ import { CosmicButton, CosmicModal } from 'cosmic-ui-lite';
 
 const button = CosmicButton.create({ text: 'Launch', variant: 'primary' });
 const modal = CosmicModal.create({ title: 'Test', content: 'Content', buttons: [...] });
+modal.show(); // Show the modal
+modal.close(); // Close it programmatically
 ```
 
 #### Demo System Usage
@@ -164,6 +167,7 @@ createCosmicDemo(); // Adds floating demo panel with component tests
 - **Modular Components**: Each component is self-contained in separate files
 - **Shared Utilities**: Use `src/utils/` for common SVG and gradient functions
 - **Modal Buttons Required**: Modals require buttons array for proper layout (console warning if omitted)
+- **Modal API**: Modals use instance methods - `.show()` to display, `.close()` to dismiss
 - **Zero Runtime Dependencies**: Pure vanilla TypeScript with no external runtime dependencies
 - **SVG-Based**: All shapes use SVG paths for crisp rendering at any scale
 

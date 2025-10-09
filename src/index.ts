@@ -22,10 +22,6 @@ export class CosmicUI {
   static createInfo = CosmicInfo.create;
   static createTag = CosmicTag.create;
 
-  // Modal utility methods
-  static showModal = CosmicModal.show;
-  static closeModal = CosmicModal.close;
-
   /**
    * Utility method to create a confirmation modal
    */
@@ -52,7 +48,7 @@ export class CosmicUI {
       ],
     });
 
-    CosmicUI.showModal(modal);
+    modal.show();
   }
 
   /**
@@ -71,7 +67,7 @@ export class CosmicUI {
       ]
     });
 
-    CosmicUI.showModal(modal);
+    modal.show();
   }
 
   /**
@@ -91,7 +87,7 @@ export class CosmicUI {
       onClose: onClose,
     });
 
-    CosmicUI.showModal(modal);
+    modal.show();
   }
 }
 
