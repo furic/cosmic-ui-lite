@@ -2,22 +2,22 @@
 
 [![npm version](https://img.shields.io/npm/v/cosmic-ui-lite?style=for-the-badge&logo=npm&color=00d4ff)](https://www.npmjs.com/package/cosmic-ui-lite)
 [![npm downloads](https://img.shields.io/npm/dm/cosmic-ui-lite?style=for-the-badge&logo=npm&color=ff6b35)](https://www.npmjs.com/package/cosmic-ui-lite)
-[![GitHub release](https://img.shields.io/github/v/release/raw-fun-gaming/cosmic-ui-lite?style=for-the-badge&logo=github&color=00ff88)](https://github.com/raw-fun-gaming/cosmic-ui-lite/releases)
-[![License](https://img.shields.io/github/license/raw-fun-gaming/cosmic-ui-lite?style=for-the-badge&color=ffaa00)](https://github.com/raw-fun-gaming/cosmic-ui-lite/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/furic/cosmic-ui-lite?style=for-the-badge&logo=github&color=00ff88)](https://github.com/furic/cosmic-ui-lite/releases)
+[![License](https://img.shields.io/github/license/furic/cosmic-ui-lite?style=for-the-badge&color=ffaa00)](https://github.com/furic/cosmic-ui-lite/blob/main/LICENSE)
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vanilla JS](https://img.shields.io/badge/Vanilla%20JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Zero Dependencies](https://img.shields.io/badge/Zero%20Dependencies-00d4ff?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/cosmic-ui-lite)
-[![Game Ready](https://img.shields.io/badge/Game%20Ready-ff6b35?style=for-the-badge&logo=gamepad&logoColor=white)](https://github.com/raw-fun-gaming/cosmic-ui-lite/wiki/Complete-Examples)
+[![Game Ready](https://img.shields.io/badge/Game%20Ready-ff6b35?style=for-the-badge&logo=gamepad&logoColor=white)](https://github.com/furic/cosmic-ui-lite/wiki/Complete-Examples)
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/raw-fun-gaming/cosmic-ui-lite/ci.yml?style=for-the-badge&logo=github-actions)](https://github.com/raw-fun-gaming/cosmic-ui-lite/actions)
-[![GitHub Pages](https://img.shields.io/github/deployments/raw-fun-gaming/cosmic-ui-lite/github-pages?style=for-the-badge&logo=github&label=Demo%20Site&color=00ff88)](https://raw-fun-gaming.github.io/cosmic-ui-lite/)
-[![Wiki](https://img.shields.io/badge/Wiki-Documentation-00ff88?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/raw-fun-gaming/cosmic-ui-lite/wiki)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/furic/cosmic-ui-lite/ci.yml?style=for-the-badge&logo=github-actions)](https://github.com/furic/cosmic-ui-lite/actions)
+[![GitHub Pages](https://img.shields.io/github/deployments/furic/cosmic-ui-lite/github-pages?style=for-the-badge&logo=github&label=Demo%20Site&color=00ff88)](https://furic.github.io/cosmic-ui-lite/)
+[![Wiki](https://img.shields.io/badge/Wiki-Documentation-00ff88?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/furic/cosmic-ui-lite/wiki)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/cosmic-ui-lite?style=for-the-badge&logo=webpack&color=purple)](https://bundlephobia.com/package/cosmic-ui-lite)
 
 A lightweight, futuristic, space-themed UI component library built with TypeScript and vanilla JavaScript. Features SVG-based components with animated gradients, cosmic effects, and responsive design.
 
-> 🌟 **[Live Demo](https://raw-fun-gaming.github.io/cosmic-ui-lite/) - Try all components interactively!**
+> 🌟 **[Live Demo](https://furic.github.io/cosmic-ui-lite/) - Try all components interactively!**
 > 📸 **See the [Visual Showcase](#-visual-showcase) below for component screenshots and examples!**
 > 📚 **[Complete Documentation](../../wiki) | [Local Docs](docs/wiki/) | [Architecture Guide](docs/wiki/wiki-architecture-overview.md)**
 
@@ -156,7 +156,7 @@ import 'cosmic-ui-lite/dist/cosmic-ui.css';
 ### Source Build
 
 ```bash
-git clone https://github.com/raw-fun-gaming/cosmic-ui-lite.git
+git clone https://github.com/furic/cosmic-ui-lite.git
 cd cosmic-ui-lite && npm install && npm run build
 ```
 
