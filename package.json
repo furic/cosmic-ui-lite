@@ -33,12 +33,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raw-fun-gaming/cosmic-ui-lite.git"
+    "url": "https://github.com/furic/cosmic-ui-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/raw-fun-gaming/cosmic-ui-lite/issues"
+    "url": "https://github.com/furic/cosmic-ui-lite/issues"
   },
-  "homepage": "https://github.com/raw-fun-gaming/cosmic-ui-lite#readme",
+  "homepage": "https://github.com/furic/cosmic-ui-lite#readme",
   "engines": {
     "node": ">=14.0.0"
   },
